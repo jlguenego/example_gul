@@ -1,0 +1,27 @@
+{
+  "name": "example_gul",
+  "description": "Exemple de code pour le cours GUL d'ORSYS",
+  "main": "index.js",
+  "authors": [
+    "Jean-Louis GUENEGO"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "angular",
+    "example",
+    "gul",
+    "orsys"
+  ],
+  "homepage": "https://github.com/jlguenego/example_gul",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-route": "1.5.8"
+  }
+}

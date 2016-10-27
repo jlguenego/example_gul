@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<base href="/01_login/" />
+		<title>A simple SPA application</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body ng-app="mainApp">
+		<jlg-layout>
+			<jlg-layout-header>
+				<jlg-logo src="../resources/img/logo.png"></jlg-logo>
+				<jlg-menu>
+					<jlg-menu-item ng-hide="user">Se connecter</jlg-menu-item>
+					<jlg-menu-item ng-show="user">Voir profile</jlg-menu-item>
+					<jlg-menu-item ng-show="user">Déconnexion</jlg-menu-item>
+				</jlg-menu>
+			</jlg-layout-header>
+			<jlg-layout-body><ng-view></ng-view></jlg-layout-body>
+		</jlg-layout>
+		<script src="../bower_components/angular/angular.js"></script>
+		<script src="../bower_components/angular-route/angular-route.min.js"></script>
+		<script src="jlg-layout/jlg-layout.js"></script>
+		<script src="jlg-user/jlg-user.js"></script>
+		<script src="app.js"></script>
+		
+	</body>
+</html>
