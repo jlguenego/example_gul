@@ -13,7 +13,6 @@ jlg-layout-header {
 
 jlg-logo img {
     height: 48px;
-    border: 1px solid black;
 }
 
 jlg-utilities {
@@ -24,15 +23,26 @@ jlg-menu-item-group jlg-menu {
     display: none;
 } 
 
-jlg-menu {
+jlg-layout-header > jlg-menu {
     display: block;
-    border: 1px solid black;
+    border: none;
     text-align: center;
-
+    background-color: hsla(0, 0%, 95%, 1);
+    margin: 20px 0px;
 }
 
-jlg-menu-item {
+jlg-layout-header > jlg-menu > jlg-menu-item, jlg-layout-header > jlg-menu > jlg-menu-item-group > jlg-menu-item {
     display: inline-block;
-    border: 1px solid black;
-    margin: 20px;
+    border: none;
+    background-color: hsla(0, 0%, 95%, 1);
+    padding: 20px 5px;
+    margin: 0px 5px;
+}
+
+jlg-layout-header > jlg-menu > jlg-menu-item:hover, jlg-layout-header > jlg-menu > jlg-menu-item-group > jlg-menu-item:hover {
+    display: inline-block;
+    border: none;
+    background-color: hsla(0, 0%, 90%, 1);
+    padding: 20px 5px;
+    margin: 0px 5px;
 }
