@@ -1,3 +1,38 @@
-jlg-menu-item {
+jlg-layout {
+    display: block;
+}
+
+jlg-layout [ng-click] {
     cursor: pointer;
+}
+
+jlg-layout-header {
+    display: block;
+    padding-top: 10px;
+}
+
+jlg-logo img {
+    height: 48px;
+    border: 1px solid black;
+}
+
+jlg-utilities {
+    float: right;   
+}
+
+jlg-menu-item-group jlg-menu {
+    display: none;
+} 
+
+jlg-menu {
+    display: block;
+    border: 1px solid black;
+    text-align: center;
+
+}
+
+jlg-menu-item {
+    display: inline-block;
+    border: 1px solid black;
+    margin: 20px;
 }
