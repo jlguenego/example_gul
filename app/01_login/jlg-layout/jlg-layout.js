@@ -7,14 +7,14 @@
 		return {
 			link: function(scope, element, attrs) {
 				element.html('<img src="' + attrs.src + '" />');
-			},
+			}
 		};
 	});
 
 	app.directive('jlgUtilitiesItem', function() {
 		return {
 			template: '<button class="btn btn-default btn-success" ng-transclude></button>',
-			transclude: true,
+			transclude: true
 		};
 	});
 
@@ -23,7 +23,7 @@
 			link: function(scope, element, attrs) {
 				console.log('link jlgMenu', arguments);
 				// look at the url and deduct which item is active
-			},
+			}
 
 		};
 	});
@@ -33,7 +33,7 @@
 			link: function(scope, element, attrs) {
 				console.log('link jlgMenu', arguments);
 				// look at the url and deduct which item is active
-			},
+			}
 
 		};
 	}]);

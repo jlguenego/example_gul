@@ -7,6 +7,7 @@ module.exports = {
     "rules": {
         "no-var": 0,
         "prefer-rest-params": 0,
-		"max-len": ["error", 120]
+		"max-len": ["error", 120],
+		"comma-dangle": ["error", "never"],
     }
 };

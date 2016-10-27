@@ -2,7 +2,7 @@
 	'use strict';
 
 	var app = angular.module('mainApp', ['ngRoute', 'jlg-layout', 'jlg-user', 'jlg-contact']);
-	
+
 	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 		console.log('mainApp config');
 		$locationProvider
@@ -10,10 +10,10 @@
 
 		$routeProvider
 			.when('/', {
-				templateUrl: 'tmpl/home.html'
+				templateUrl: 'tmpl/home.html',
 			})
 			.otherwise({
-				redirectTo: '/'
+				redirectTo: '/',
 			});
 	}]);
 
@@ -27,5 +27,4 @@
 			$location.path(url);
 		};
 	}]);
-	
 })();
