@@ -29,12 +29,11 @@
 	});
 
 	app.directive('jlgMenuItem', ['$injector', function($injector) {
+		var $rootScope = $injector.get('$rootScope');
 		return {
-			compile: function(tElement, tAttrs, transclude) {
+			compile: function compile(tElement, tAttrs, transclude) {
 				console.log('compile jlgMenuItem', arguments);
-				var href = tAttrs.href;
-				tElement.attr('ng-click', 'goto(\'' + href + '\')');
-				var link = function(scope, element, attrs) {
+				return function(scope, element, attrs) {
 					console.log('link jlgMenuItem', arguments);
 					// look at the url and deduct which item is active
 					scope.$on('$routeChangeStart', function(event, next, current) {
@@ -48,8 +47,14 @@
 							element.removeClass('active');
 						}
 					});
+
+					element.bind('click', function() {
+						console.log('click', arguments);
+						$rootScope.goto(attrs.href);
+						scope.$apply();
+					});
+
 				};
-				return link;
 			}
 		};
 	}]);
