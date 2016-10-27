@@ -83,4 +83,10 @@ jlg-menu-item-group > jlg-menu > jlg-menu-item {
     background-color: hsla(0, 0%, 95%, 1);
 }
 
+jlg-menu-item-group > jlg-menu > jlg-menu-item:hover {
+	display: block;
+	padding: 20px;
+    background-color: hsla(0, 0%, 90%, 1);
+}
+
 
