@@ -30,7 +30,8 @@ jlg-layout-header > jlg-menu {
     margin: 20px 0px;
 }
 
-jlg-layout-header > jlg-menu > jlg-menu-item, jlg-layout-header > jlg-menu > jlg-menu-item-group > jlg-menu-item {
+jlg-layout-header > jlg-menu > jlg-menu-item,
+jlg-layout-header > jlg-menu > jlg-menu-item-group > jlg-menu-item {
     display: inline-block;
     border: none;
     background-color: hsla(0, 0%, 95%, 1);
@@ -38,7 +39,8 @@ jlg-layout-header > jlg-menu > jlg-menu-item, jlg-layout-header > jlg-menu > jlg
     margin: 0px 5px;
 }
 
-jlg-layout-header > jlg-menu > jlg-menu-item:hover, jlg-layout-header > jlg-menu > jlg-menu-item-group > jlg-menu-item:hover {
+jlg-layout-header > jlg-menu > jlg-menu-item:hover,
+jlg-layout-header > jlg-menu > jlg-menu-item-group > jlg-menu-item:hover {
     display: inline-block;
     border: none;
     background-color: hsla(0, 0%, 90%, 1);

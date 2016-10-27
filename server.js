@@ -14,7 +14,7 @@ app.use(serveIndex('./app', {icons: true}));
 
 
 // url rewriting
-app.all(['/01_login/signin*', '/01_login/signup*',
+app.all(['/01_login/signin*', '/01_login/signup*', '/01_login/services*',
 	'/01_login/signout*', '/01_login/contact*'], function(req, res) {
 	res.sendFile('./app/01_login/index.html', {root: __dirname});
 });

@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	var app = angular.module('mainApp', ['ngRoute', 'jlg-layout', 'jlg-user', 'jlg-contact']);
+	var app = angular.module('mainApp', ['ngRoute', 'jlg-layout', 'jlg-user', 'jlg-contact', 'jlg-services']);
 
 	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 		console.log('mainApp config');
