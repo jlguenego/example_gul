@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<meta charset="UTF-8" />
 		<base href="/01_login/" />
 		<title>A simple SPA application</title>
+		<link rel="stylesheet" href="../bower_components/angular/angular-csp.css" />
+		<link rel="stylesheet" href="jlg-layout/jlg-layout.css" />
 		<link rel="stylesheet" href="style.css" />
 	</head>
-	<body ng-app="mainApp">
+	<body ng-cloak ng-app="mainApp">
 		<jlg-layout>
 			<jlg-layout-header>
 				<jlg-logo src="../resources/img/logo.png"></jlg-logo>
 				<jlg-menu>
-					<jlg-menu-item ng-hide="user">Se connecter</jlg-menu-item>
-					<jlg-menu-item ng-show="user">Voir profile</jlg-menu-item>
-					<jlg-menu-item ng-show="user">Déconnexion</jlg-menu-item>
+					<jlg-menu-item ng-hide="user" ng-click="goto('/signin')">Se connecter</jlg-menu-item>
+					<jlg-menu-item ng-hide="user" href="./signup">Créer un compte</jlg-menu-item>
+					<jlg-menu-item ng-show="user" href="./{{user}}/profile">Voir profile</jlg-menu-item>
+					<jlg-menu-item ng-show="user" href="./signout">Déconnexion</jlg-menu-item>
 				</jlg-menu>
 			</jlg-layout-header>
 			<jlg-layout-body><ng-view></ng-view></jlg-layout-body>
