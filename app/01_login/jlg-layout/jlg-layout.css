@@ -16,12 +16,12 @@ jlg-logo img {
 }
 
 jlg-utilities {
-    float: right;   
+    float: right;
 }
 
 jlg-menu-item-group jlg-menu {
     display: none;
-} 
+}
 
 jlg-layout-header > jlg-menu {
     display: block;
@@ -48,5 +48,9 @@ jlg-layout-header > jlg-menu > jlg-menu-item:hover, jlg-layout-header > jlg-menu
 }
 
 jlg-menu-item.active {
+    background-color: hsla(0, 40%, 85%, 1);
+}
+
+jlg-menu-item.active:hover {
     background-color: hsla(0, 40%, 85%, 1);
 }

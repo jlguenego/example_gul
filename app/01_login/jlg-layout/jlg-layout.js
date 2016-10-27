@@ -33,6 +33,17 @@
 			link: function(scope, element, attrs) {
 				console.log('link jlgMenu', arguments);
 				// look at the url and deduct which item is active
+				scope.$on('$routeChangeStart', function(event, next, current) {
+					console.log('$routeChangeStart', arguments);
+
+					var toUrl = next.originalPath;
+					console.log('$routeChangeStart', toUrl);
+					if (toUrl === attrs.href) {
+						element.addClass('active');
+					} else {
+						element.removeClass('active');
+					}
+				});
 			}
 
 		};
