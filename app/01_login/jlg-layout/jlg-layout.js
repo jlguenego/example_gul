@@ -27,6 +27,11 @@
 
 		};
 	});
+	
+	// /xxx/yyy/zzz => /xxx
+	var getTopDirectory = function(path) {
+		return path.substring(0, path.substring(1).indexOf('/') + 1);
+	};
 
 	app.directive('jlgMenuItem', ['$injector', function($injector) {
 		var $rootScope = $injector.get('$rootScope');
@@ -45,6 +50,14 @@
 							element.addClass('active');
 						} else {
 							element.removeClass('active');
+						}
+						console.log('toUrl', toUrl);
+						console.log('getTopDirectory(toUrl)', getTopDirectory(toUrl));
+						console.log('attrs.href', attrs.href);
+						if (getTopDirectory(toUrl) === attrs.href) {
+							element.addClass('active-dir');
+						} else {
+							element.removeClass('active-dir');
 						}
 					});
 

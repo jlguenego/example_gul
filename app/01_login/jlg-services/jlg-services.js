@@ -11,6 +11,12 @@
 		$routeProvider
 			.when('/services', {
 				templateUrl: 'jlg-services/tmpl/services.html',
+			})
+			.when('/services/usability', {
+				templateUrl: 'jlg-services/tmpl/usability.html',
+			})
+			.when('/services/angular', {
+				templateUrl: 'jlg-services/tmpl/angular.html',
 			});
 	}]);
 })();

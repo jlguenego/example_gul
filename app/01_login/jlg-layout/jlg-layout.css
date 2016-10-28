@@ -56,6 +56,14 @@ jlg-menu-item.active:hover {
     background-color: hsla(0, 40%, 85%, 1);
 }
 
+jlg-menu-item.active-dir {
+    background-color: hsla(0, 40%, 90%, 1);
+}
+
+jlg-menu-item.active-dir:hover {
+    background-color: hsla(0, 40%, 90%, 1);
+}
+
 /* Cas des menu secondaires */
 
 jlg-menu-item-group {
