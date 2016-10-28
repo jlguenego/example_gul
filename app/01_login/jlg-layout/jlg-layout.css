@@ -109,11 +109,17 @@
 
 	jlg-layout-header {
 		display: block;
-		padding-top: 10px;
+		padding-top: 0px;
 	}
 
 	jlg-logo img {
-		height: 35px;
+		height: 55px;
+		padding: 10px;
+	}
+	
+	jlg-bars {
+		float: right;
+		padding: 10px;
 	}
 
 	jlg-utilities {

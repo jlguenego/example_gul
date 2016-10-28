@@ -16,7 +16,7 @@
 		$rootScope.refresh = function() {
 			console.log('refresh', arguments);
 			$rootScope.isSmallScreen = window.innerWidth < 768;
-			$rootScope.isMobile = window.mobilecheck();
+			$rootScope.isMobile = window.mobilecheck() || $rootScope.isSmallScreen;
 			$rootScope.isLandscape = window.innerWidth > window.innerHeight;
 			console.log('$rootScope.isSmallScreen', $rootScope.isSmallScreen);
 			console.log('$rootScope.isMobile', $rootScope.isMobile);
@@ -27,6 +27,7 @@
 			$rootScope.refresh();
 			$rootScope.$apply();
 		};
+		$rootScope.refresh();
 		
 	}]);
 
@@ -63,9 +64,13 @@
 				$rootScope.$watch('isMobile', function() {
 					console.log('isMobile', arguments);
 					if ($rootScope.isMobile) {
-						element.append('<i id="jlg-menu-bars" class="fa fa-bars" aria-hidden="true"></i>');
+						element.prepend('<jlg-bars id="jlg_menu_bars" class="fa fa-bars fa-3x" aria-hidden="true"></jlg-bars>');
 					} else {
-						element.remove('#jlg-menu-bars');
+						console.log('remove element bars');
+						var first = element.children().eq(0);
+						if (first.attr('id') === 'jlg_menu_bars') {
+							first.remove();
+						}
 					}
 				});	
 				
