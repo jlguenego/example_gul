@@ -11,7 +11,13 @@
 	
 	app.run([ '$injector', function($injector) {
 		var $rootScope = $injector.get('$rootScope');
+		var $timeout = $injector.get('$timeout');
 		
+		$rootScope.isMenu = false;
+		$rootScope.toggleMenu = function() {
+			console.log('toggleMenu', arguments);
+			$rootScope.isMenu = !$rootScope.isMenu;
+		};
 		
 		$rootScope.refresh = function() {
 			console.log('refresh', arguments);
@@ -28,6 +34,20 @@
 			$rootScope.$apply();
 		};
 		$rootScope.refresh();
+		
+		function postDigest(callback){    
+			var unregister = $rootScope.$watch(function() {  
+				unregister();
+				$timeout(function() {
+					callback();
+					postDigest(callback);
+				}, 0, false);       
+			});
+		}
+
+		postDigest(function(){
+		  console.log('end of digest');
+		})
 		
 	}]);
 
@@ -51,26 +71,56 @@
 					} else {
 						element.addClass("container");
 					}
-				});	
+				});
 			}
 		};
 	}]);
 	
 	app.directive('jlgLayoutHeader', [ '$injector', function($injector) {
 		var $rootScope = $injector.get('$rootScope');
+		var $compile = $injector.get('$compile');
 		return {
 			link: function(scope, element, attrs) {
 				console.log('link jlgLayoutHeader', arguments);
 				$rootScope.$watch('isMobile', function() {
 					console.log('isMobile', arguments);
 					if ($rootScope.isMobile) {
-						element.prepend('<jlg-bars id="jlg_menu_bars" class="fa fa-bars fa-3x" aria-hidden="true"></jlg-bars>');
+						element.prepend('<jlg-bars ng-click="toggleMenu()" id="jlg_menu_bars" class="fa fa-bars fa-3x" aria-hidden="true"></jlg-bars>');
+						
+						$compile(element.children().eq(0))(scope);
 					} else {
 						console.log('remove element bars');
 						var first = element.children().eq(0);
 						if (first.attr('id') === 'jlg_menu_bars') {
 							first.remove();
 						}
+					}
+				});	
+				
+			}
+		};
+	}]);
+	
+	app.directive('jlgUtilities', [ '$injector', function($injector) {
+		var $rootScope = $injector.get('$rootScope');
+		var $compile = $injector.get('$compile');
+		return {
+			link: function(scope, element, attrs) {
+				console.log('link jlgUtilities', arguments);
+				$rootScope.$watchGroup(['isMobile', 'isMenu'], function() {
+					console.log('jlgUtilities isMobile', arguments);
+					if ($rootScope.isMobile) {
+						console.log('isMobile true');
+						if ($rootScope.isMenu) {
+							console.log('isMenu true');
+							element.css('display', 'block');
+						} else {
+							console.log('isMenu false');
+							element.css('display', 'none');
+						}
+						
+					} else {
+						element.css('display', 'block');
 					}
 				});	
 				
@@ -97,6 +147,9 @@
 	
 	// /xxx/yyy/zzz => /xxx
 	var getTopDirectory = function(path) {
+		if (path === undefined) {
+			return undefined;
+		}
 		return path.substring(0, path.substring(1).indexOf('/') + 1);
 	};
 
