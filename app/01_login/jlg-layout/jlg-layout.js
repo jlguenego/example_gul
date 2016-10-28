@@ -125,7 +125,7 @@
 						
 					} else {
 						jlgUtilitiesElement.css('display', 'block');
-						
+						jlgMenuElement.css('display', 'block');
 					}
 				});
 				

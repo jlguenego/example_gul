@@ -39,11 +39,7 @@
 
 	jlg-layout-header > jlg-menu > jlg-menu-item:hover,
 	jlg-layout-header > jlg-menu > jlg-menu-item-group > jlg-menu-item:hover {
-		display: inline-block;
-		border: none;
 		background-color: hsla(0, 0%, 90%, 1);
-		padding: 20px 5px;
-		margin: 0px 5px;
 	}
 
 	jlg-menu-item.active {
@@ -55,7 +51,7 @@
 	}
 
 	jlg-menu-item.active-dir {
-		background-color: hsla(0, 40%, 90%, 1);
+		background-color: hsla(0, 40%, 95%, 1);
 	}
 
 	jlg-menu-item.active-dir:hover {
@@ -90,8 +86,6 @@
 	}
 
 	jlg-menu-item-group > jlg-menu > jlg-menu-item:hover {
-		display: block;
-		padding: 20px;
 		background-color: hsla(0, 0%, 90%, 1);
 	}
 
@@ -118,6 +112,7 @@
 		display: block;
 		height: 55px;
 		padding: 0px;
+		cursor: pointer;
 	}
 
 	jlg-logo img {
@@ -155,6 +150,14 @@
 		width: 100%;
 		border-bottom: 1px solid #eeeeee;
 		padding: 20px;
+	}
+	
+	jlg-menu-item.active {
+		background-color: hsla(0, 40%, 85%, 1);
+	}
+	
+	jlg-menu-item.active-dir {
+		background-color: hsla(0, 40%, 95%, 1);
 	}
 	
 	jlg-layout-header  jlg-menu jlg-menu jlg-menu-item {
