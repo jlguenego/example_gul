@@ -189,6 +189,7 @@
 					element.bind('click', function() {
 						console.log('click', arguments);
 						$rootScope.goto(attrs.href);
+						$rootScope.isMenu = false;
 						scope.$apply();
 					});
 

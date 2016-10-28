@@ -143,13 +143,26 @@
 		display: block;
 		padding: 20px;
 		background-color: hsla(0, 100%, 100%, 1);
-		
 	}
 
 	jlg-layout-header > jlg-menu {
 		position: absolute;
 		width: 100%;
+	}
+	
+	jlg-layout-header jlg-menu jlg-menu-item {
+		display: block;
+		width: 100%;
 		border-bottom: 1px solid #eeeeee;
+		padding: 20px;
+	}
+	
+	jlg-layout-header  jlg-menu jlg-menu jlg-menu-item {
+		display: block;
+		width: 100%;
+		border-bottom: 1px solid #eeeeee;
+		padding: 20px;
+		padding-left: 40px;
 	}
 
 
