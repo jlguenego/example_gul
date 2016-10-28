@@ -3,10 +3,8 @@
 
 	var app = angular.module('jlg-contact', []);
 
-	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-		console.log('jlg-user config');
-		$locationProvider
-			.html5Mode(true);
+	app.config(['$routeProvider', function($routeProvider) {
+		console.log('jlg-contact config');
 
 		$routeProvider
 			.when('/contact', {

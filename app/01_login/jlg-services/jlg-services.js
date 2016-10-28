@@ -3,11 +3,9 @@
 
 	var app = angular.module('jlg-services', []);
 
-	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-		console.log('jlg-user config');
-		$locationProvider
-			.html5Mode(true);
-
+	app.config(['$routeProvider', function($routeProvider) {
+		console.log('jlg-services config');
+		
 		$routeProvider
 			.when('/services', {
 				templateUrl: 'jlg-services/tmpl/services.html',
