@@ -111,6 +111,13 @@
 		display: block;
 		padding-top: 0px;
 		border-bottom: 1px solid black;
+		position: relative;
+	}
+	
+	jlg-logo {
+		display: block;
+		height: 55px;
+		padding: 0px;
 	}
 
 	jlg-logo img {
@@ -123,9 +130,26 @@
 		padding: 10px;
 		cursor: pointer;
 	}
+	
+	jlg-utilities {
+		position: absolute;
+		top: 55px;
+		width: 100%;
+		border-top: 1px solid #eeeeee;
+		border-bottom: 1px solid #eeeeee;
+	}
+	
+	jlg-utilities > jlg-utilities-item {
+		display: block;
+		padding: 20px;
+		background-color: hsla(0, 100%, 100%, 1);
+		
+	}
 
 	jlg-layout-header > jlg-menu {
-		display: none;
+		position: absolute;
+		width: 100%;
+		border-bottom: 1px solid #eeeeee;
 	}
 
 

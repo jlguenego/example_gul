@@ -95,34 +95,39 @@
 							first.remove();
 						}
 					}
-				});	
+				});
 				
-			}
-		};
-	}]);
-	
-	app.directive('jlgUtilities', [ '$injector', function($injector) {
-		var $rootScope = $injector.get('$rootScope');
-		var $compile = $injector.get('$compile');
-		return {
-			link: function(scope, element, attrs) {
-				console.log('link jlgUtilities', arguments);
+				var jlgLogoElement = element.find('jlg-logo');
+				var jlgUtilitiesElement = element.find('jlg-utilities');
+				var jlgMenuElement = element.find('jlg-menu').eq(0);
+				
 				$rootScope.$watchGroup(['isMobile', 'isMenu'], function() {
 					console.log('jlgUtilities isMobile', arguments);
 					if ($rootScope.isMobile) {
 						console.log('isMobile true');
 						if ($rootScope.isMenu) {
 							console.log('isMenu true');
-							element.css('display', 'block');
+							jlgUtilitiesElement.css('display', 'block');
+							jlgMenuElement.css('display', 'block');
+							var jlgLogoheight = jlgLogoElement[0].offsetHeight;
+							var jlgUtilitiesHeight = jlgUtilitiesElement[0].offsetHeight;
+							var height = jlgLogoheight + jlgUtilitiesHeight;
+							console.log('jlgLogoheight', jlgLogoheight);
+							console.log('jlgUtilitiesHeight', jlgUtilitiesHeight);
+							console.log('height', height);
+							jlgMenuElement.css('top', height + 'px');
+							
 						} else {
 							console.log('isMenu false');
-							element.css('display', 'none');
+							jlgUtilitiesElement.css('display', 'none');
+							jlgMenuElement.css('display', 'none');
 						}
 						
 					} else {
-						element.css('display', 'block');
+						jlgUtilitiesElement.css('display', 'block');
+						
 					}
-				});	
+				});
 				
 			}
 		};
