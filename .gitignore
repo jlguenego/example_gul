@@ -2,3 +2,8 @@
 *node_modules*
 *.log
 app.bundle.js
+*/02_webpack/*.eot
+*/02_webpack/*.svg
+*/02_webpack/*.woff2
+*/02_webpack/*.woff
+*/02_webpack/*.ttf

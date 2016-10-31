@@ -1,1 +1,5 @@
-// put here what you want...
+/* put here what you want... */
+
+body {
+	background-color: hsl(0, 100%, 100%);
+}

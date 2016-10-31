@@ -1,5 +1,12 @@
 'use strict';
 
+//<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+require('../bower_components/bootstrap/dist/css/bootstrap.css');
+require('../bower_components/font-awesome/css/font-awesome.css');
+require('../bower_components/angular/angular-csp.css');
+require('./jlg-layout/jlg-layout.css');
+require('./style.css');
+
 var $ = require('../bower_components/jquery/dist/jquery.js');
 window.jQuery = $;
 window.$ = $;
