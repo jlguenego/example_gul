@@ -6,16 +6,16 @@ module.exports = {
 		path: './app/02_webpack',
 		filename: 'app.bundle.js'
 	},
-//	plugins: [
-//        new webpack.optimize.UglifyJsPlugin({
-//            compress: {
-//                warnings: false,
-//            },
-//            output: {
-//                comments: false,
-//            },
-//        }),
-//    ],
+	plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+            },
+            output: {
+                comments: false,
+            },
+        }),
+    ],
 	module: {
 		loaders: [
 			{ test: /\.css$/, loaders: ['style', 'css'] },
