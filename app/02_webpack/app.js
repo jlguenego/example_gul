@@ -1,6 +1,5 @@
 'use strict';
 
-//<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
 require('../bower_components/bootstrap/dist/css/bootstrap.css');
 require('../bower_components/font-awesome/css/font-awesome.css');
 require('../bower_components/angular/angular-csp.css');
