@@ -2,10 +2,13 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-	entry: './app/02_webpack/app.js',
+	entry: {
+        app_02_webpack: './app/02_webpack/app.js',
+        app_03_compile: './app/03_compile/app.js',
+    },
 	output: {
-		path: './app/02_webpack',
-		filename: 'app.bundle.js'
+		path: './app/dist',
+		filename: '[name].js'
 	},
 	plugins: [
 // uglify decrease the performance when building...
@@ -18,7 +21,7 @@ module.exports = {
                 comments: false,
             },
         }),*/
-		new ExtractTextPlugin('styles.css')
+		new ExtractTextPlugin('[name].css')
     ],
 	module: {
 		loaders: [
@@ -29,7 +32,7 @@ module.exports = {
 			{test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
 			{test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
 			
-			{test: /\.html$/, loader: 'ngtemplate?relativeTo=02_webpack!html'}
+			{test: /\.html$/, loader: 'ngtemplate?relativeTo=app!html'}
 			
 		]
     },

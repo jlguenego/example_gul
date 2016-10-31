@@ -13,10 +13,10 @@ var app = express();
 // for the short loop dev paradigm: express watches the files and build the bundles when needed.
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
-webpackConfig.output.path = '/02_webpack/';
+webpackConfig.output.path = '/';
 var compiler = webpack(webpackConfig);
 var webpackDevMiddleware = require('webpack-dev-middleware');
-app.use('/02_webpack/', webpackDevMiddleware(compiler, {
+app.use('/dist/', webpackDevMiddleware(compiler, {
     // options
 }));
 
@@ -29,7 +29,7 @@ app.use(serveIndex('./app', {icons: true}));
 
 
 // url rewriting
-var directories = ['/01_responsive/', '/02_webpack/'];
+var directories = ['/01_responsive/', '/02_webpack/', '/03_compile/'];
 var pages = ['signin', 'signup', 'signout', 'services', 'contact'];
 
 directories.forEach(function(dir) {
