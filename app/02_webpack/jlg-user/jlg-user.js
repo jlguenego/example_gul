@@ -1,22 +1,23 @@
 (function() {
 	'use strict';
+	
+	var signinUrl = require('./tmpl/signin.html');
+	var signupUrl = require('./tmpl/signup.html');
+	var signoutUrl = require('./tmpl/signout.html');
 
 	var app = angular.module('jlg-user', []);
 	
-	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-		console.log('jlg-user config');
-		$locationProvider
-			.html5Mode(true);
+	app.config(['$routeProvider', function($routeProvider) {
 
 		$routeProvider
 			.when('/signin', {
-				templateUrl: 'jlg-user/tmpl/signin.html'
+				templateUrl: signinUrl
 			})
 			.when('/signup', {
-				templateUrl: 'jlg-user/tmpl/signup.html'
+				templateUrl: signupUrl
 			})
 			.when('/signout', {
-				templateUrl: 'jlg-user/tmpl/signout.html'
+				templateUrl: signoutUrl
 			});
 	}]);
 })();

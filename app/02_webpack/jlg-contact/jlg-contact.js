@@ -1,5 +1,8 @@
 (function() {
 	'use strict';
+	
+	var contactUrl = require('./tmpl/contact.html');
+	console.log('contactUrl', contactUrl);
 
 	var app = angular.module('jlg-contact', []);
 
@@ -8,7 +11,7 @@
 
 		$routeProvider
 			.when('/contact', {
-				templateUrl: 'jlg-contact/tmpl/contact.html',
+				templateUrl: contactUrl,
 			});
 	}]);
 })();

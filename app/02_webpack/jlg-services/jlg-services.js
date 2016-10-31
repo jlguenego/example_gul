@@ -1,5 +1,9 @@
 (function() {
 	'use strict';
+	
+	var servicesUrl = require('./tmpl/services.html');
+	var usabilityUrl = require('./tmpl/usability.html');
+	var angularUrl = require('./tmpl/angular.html');
 
 	var app = angular.module('jlg-services', []);
 
@@ -8,13 +12,13 @@
 		
 		$routeProvider
 			.when('/services', {
-				templateUrl: 'jlg-services/tmpl/services.html',
+				templateUrl: servicesUrl,
 			})
 			.when('/services/usability', {
-				templateUrl: 'jlg-services/tmpl/usability.html',
+				templateUrl: usabilityUrl,
 			})
 			.when('/services/angular', {
-				templateUrl: 'jlg-services/tmpl/angular.html',
+				templateUrl: angularUrl,
 			});
 	}]);
 })();

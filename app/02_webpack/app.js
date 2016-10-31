@@ -2,7 +2,6 @@
 
 require('../bower_components/bootstrap/dist/css/bootstrap.css');
 require('../bower_components/font-awesome/css/font-awesome.css');
-require('../bower_components/angular/angular-csp.css');
 require('./jlg-layout/jlg-layout.css');
 require('./style.css');
 
@@ -17,6 +16,8 @@ require('./jlg-contact/jlg-contact.js');
 require('./jlg-services/jlg-services.js');
 require('./jlg-user/jlg-user.js');
 
+var homeUrl = require('./tmpl/home.html');
+
 var app = angular.module('mainApp', ['ngRoute', 'jlg-layout', 'jlg-user', 'jlg-contact', 'jlg-services']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -26,7 +27,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 	$routeProvider
 		.when('/', {
-			templateUrl: 'tmpl/home.html',
+			templateUrl: homeUrl,
 		})
 		.otherwise({
 			redirectTo: '/',
