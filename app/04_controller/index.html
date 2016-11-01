@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- for IE8 and IE9 -->
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><!-- for mobiles no zoom -->
+		<base href="/04_controller/" />
+		<title>A simple SPA application</title>
+		<link rel="stylesheet" href="../wpk/app_04_controller.css" />
+	</head>
+	<body ng-cloak ng-app="mainApp">
+		<jlg-layout name="ctrl">
+			<jlg-layout-header>
+				<jlg-logo src="../resources/img/logo.png" ng-click="ctrl.goto('/'); isMenu = false;"></jlg-logo>
+				<jlg-utilities>
+					<jlg-utilities-item ng-hide="user" ng-click="ctrl.goto('/signin'); isMenu = false;" ><i class="fa fa-sign-in"></i> Se connecter</jlg-utilities-item>
+					<jlg-utilities-item ng-hide="user" ng-click="ctrl.goto('/signup'); isMenu = false;" ><i class="fa fa-user-plus"></i> Créer un compte</jlg-utilities-item>
+					<jlg-utilities-item ng-show="user" ng-click="ctrl.goto('/my-account'); isMenu = false;"><i class="fa fa-user"></i> Voir profile</jlg-utilities-item>
+					<jlg-utilities-item ng-show="user" ng-click="ctrl.goto('/signout'); isMenu = false;"><i class="fa fa-sign-out"></i> Déconnexion</jlg-utilities-item>
+				</jlg-utilities>
+				<jlg-menu>
+					<jlg-menu-item href="/">Accueil</jlg-menu-item>
+					<jlg-menu-item-group>
+						<jlg-menu-item href="/services">Services</jlg-menu-item>
+						<jlg-menu>
+								<jlg-menu-item href="/services/usability">Usability</jlg-menu-item>
+								<jlg-menu-item href="/services/angular">Angular</jlg-menu-item>
+						</jlg-menu>
+					</jlg-menu-item-group>
+					<jlg-menu-item href="/contact">Contact</jlg-menu-item>
+				</jlg-menu>
+			</jlg-layout-header>
+			<jlg-layout-body><ng-view></ng-view></jlg-layout-body>
+		</jlg-layout>
+		<script src="../wpk/app_04_controller.js"></script>
+	</body>
+</html>

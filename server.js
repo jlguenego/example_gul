@@ -42,8 +42,8 @@ console.log('directories', directories);
 var pages = ['signin', 'signup', 'signout', 'services', 'contact'];
 
 directories.forEach(function(dir) {
-	app.all(pages.map(function(page) { return dir + page + '*'; }), function(req, res) {
-		res.sendFile('./app' + dir + 'index.html', {root: __dirname});
+	app.all(pages.map(function(page) { return '/' + dir + '/' + page + '*'; }), function(req, res) {
+		res.sendFile('./app/' + dir + '/index.html', {root: __dirname});
 	});
 });
 

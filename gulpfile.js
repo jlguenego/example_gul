@@ -4,11 +4,11 @@ var runSequence = require('run-sequence');
 var del = require('del');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
+webpackConfig.setupProd();
 //var through = require('through2');
 //var open = require('open');
 
-gulp.task('default', ['html', 'data', 'images', 'fonts']);
-
+gulp.task('default', ['rebuild']);
 
 var path = {
 	base: 'app',
