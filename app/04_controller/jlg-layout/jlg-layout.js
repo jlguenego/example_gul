@@ -13,11 +13,11 @@ app.directive('jlgLayout', [ '$injector', function($injector) {
 	return {
 		controller: JLGLayoutCtrl,
 		scope: true,
-		link: function(scope, element, attrs) {
+		link: function(scope, element, attrs, ctrl) {
 			console.log('link jlgLayout', arguments);
-			scope.$watch('isMobile', function() {
-				console.log('isMobile', arguments);
-				if (scope.isMobile) {
+			scope.$watch(ctrl.name + '.isMobile', function() {
+				console.log(ctrl.name + '.isMobile', arguments);
+				if (ctrl.isMobile) {
 					element.removeClass("container");
 				} else {
 					element.addClass("container");
