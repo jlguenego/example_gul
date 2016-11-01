@@ -4,7 +4,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 	entry: {
         app_02_webpack: './app/02_webpack/app.js',
-        app_03_compile: './app/03_compile/app.js',
+        app_03_noRootScope: './app/03_noRootScope/app.js',
     },
 	output: {
 		path: './app/wpk',

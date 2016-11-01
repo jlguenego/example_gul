@@ -11,6 +11,10 @@
 		display: block;
 		padding-top: 10px;
 	}
+	
+	jlg-logo {
+		cursor: pointer;
+	}
 
 	jlg-logo img {
 		height: 48px;
