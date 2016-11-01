@@ -7,7 +7,7 @@ module.exports = {
         app_03_compile: './app/03_compile/app.js',
     },
 	output: {
-		path: './app/dist',
+		path: './app/wpk',
 		filename: '[name].js'
 	},
 	plugins: [
