@@ -36,7 +36,9 @@ app.use(express.static(htdocs));
 app.use(serveIndex(htdocs, {icons: true}));
 
 // url rewriting
-var directories = ['/01_responsive/', '/02_webpack/', '/03_compile/'];
+var fs = require('fs');
+var directories = fs.readdirSync(htdocs).filter(function(dir) { return dir.match(/^\d\d_/) !== null;});
+console.log('directories', directories);
 var pages = ['signin', 'signup', 'signout', 'services', 'contact'];
 
 directories.forEach(function(dir) {

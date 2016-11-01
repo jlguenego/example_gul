@@ -47,3 +47,23 @@ app.run(['$injector', function($injector) {
 	};
 }]);
 
+app.run([ '$injector', function($injector) {
+	var $rootScope = $injector.get('$rootScope');
+	var $timeout = $injector.get('$timeout');
+	
+	function postDigest(callback){    
+		var unregister = $rootScope.$watch(function() {  
+			unregister();
+			$timeout(function() {
+				callback();
+				postDigest(callback);
+			}, 0, false);       
+		});
+	}
+
+	postDigest(function(){
+	  console.log('end of digest');
+	})
+	
+}]);
+
