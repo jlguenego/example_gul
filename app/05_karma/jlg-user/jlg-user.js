@@ -4,6 +4,7 @@ var Hashes = require('jshashes');
 
 var signinUrl = require('./tmpl/signin.html');
 var signupUrl = require('./tmpl/signup.html');
+var signupSuccessUrl = require('./tmpl/signup/success.html');
 var signoutUrl = require('./tmpl/signout.html');
 
 var app = angular.module('jlg-user', []);
@@ -16,8 +17,9 @@ app.config(['$routeProvider', function($routeProvider) {
 		})
 		.when('/signup', {
 			templateUrl: signupUrl,
-			controller: 'JLGUserCtrl',
-			controllerAs: 'user'
+		})
+		.when('/signup/success', {
+			templateUrl: signupSuccessUrl,
 		})
 		.when('/signout', {
 			templateUrl: signoutUrl
@@ -32,21 +34,24 @@ app.value('hash', function(email, password) {
 app.controller('JLGUserCtrl', function($scope, $http, hash, navigate) {
 	'ngInject';
 	var ctrl = this;
+	ctrl.getDisplayName = function() {
+		return ctrl.account.content.firstname;
+	};
 	ctrl.signup = function() {
 		console.log('signup', arguments);
 
 		var data = {
-			email: $scope.signupData.email,
+			email: ctrl.signupData.email,
 			// permet de crypter le password
-			password: hash($scope.signupData.email, $scope.signupData.password),
+			password: hash(ctrl.signupData.email, ctrl.signupData.password),
 			content: {
-				lastname: $scope.signupData.lastname,
-				firstname: $scope.signupData.firstname,
-				address: $scope.signupData.address
+				lastname: ctrl.signupData.lastname,
+				firstname: ctrl.signupData.firstname,
+				address: ctrl.signupData.address
 			}
 		};
 		$http({
-			url: 'ws/signup.php',
+			url: '/ws/signup',
 			method: 'POST',
 			data: data,
 			// for php only

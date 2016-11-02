@@ -3,8 +3,8 @@ var express = require('express');
 var router = express.Router();
 module.exports = router;
 
-router.get('/now', function(req, res) {
-	res.json({now: new Date(), hello: 'world'});
+router.post('/signup', function(req, res) {
+	res.json({status: 'ok'});
 });
 
 router.get('/s1', function(req, res) {

@@ -11,28 +11,28 @@
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
 			<div class="form-group">
-				<input type="email" id="contact_email" class="form-control" ng-model="signupData.email" placeholder="Email" required />
+				<input type="email" id="contact_email" class="form-control" ng-model="user.signupData.email" placeholder="Email" required />
 			</div>
 			<div class="form-group">
-				<input type="password" id="contact_subject" class="form-control" ng-model="signupData.password" placeholder="Password" required/>
+				<input type="password" id="contact_subject" class="form-control" ng-model="user.signupData.password" placeholder="Password" required/>
 			</div>
 			<div class="form-group">
-				<input type="text" id="contact_lastname" class="form-control" ng-model="signupData.lastname" placeholder="Lastname" />
+				<input type="text" id="contact_lastname" class="form-control" ng-model="user.signupData.lastname" placeholder="Lastname" />
 			</div>
 			<div class="form-group">
-				<input type="text" id="contact_firstname" class="form-control" ng-model="signupData.firstname" placeholder="Firstname" />
+				<input type="text" id="contact_firstname" class="form-control" ng-model="user.signupData.firstname" placeholder="Firstname" />
 			</div>
 			<div class="form-group">
-				<input type="text" id="contact_address" class="form-control" ng-model="signupData.address.street" placeholder="Address (street, no)" />
+				<input type="text" id="contact_address" class="form-control" ng-model="user.signupData.address.street" placeholder="Address (street, no)" />
 			</div>
 			<div class="form-group">
-				<input type="text" id="contact_zip" class="form-control" ng-model="signupData.address.zipcode" placeholder="Zip code" />
+				<input type="text" id="contact_zip" class="form-control" ng-model="user.signupData.address.zipcode" placeholder="Zip code" />
 			</div>
 			<div class="form-group">
-				<input type="text" id="contact_city" class="form-control" ng-model="signupData.address.city" placeholder="City" />
+				<input type="text" id="contact_city" class="form-control" ng-model="user.signupData.address.city" placeholder="City" />
 			</div>
 			<div class="form-group">
-				<input type="text" id="contact_country" class="form-control" ng-model="signupData.address.country" placeholder="Country" />
+				<input type="text" id="contact_country" class="form-control" ng-model="user.signupData.address.country" placeholder="Country" />
 			</div>
 			<div class="alert alert-danger" ng-show="user.errorMsg">
 				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{user.errorMsg}}

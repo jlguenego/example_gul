@@ -9,14 +9,14 @@
 		<link rel="stylesheet" href="../wpk/app_05_karma.css" />
 	</head>
 	<body ng-cloak ng-app="mainApp" ng-strict-di>
-		<jlg-layout name="ctrl">
+		<jlg-layout name="ctrl" ng-controller="JLGUserCtrl as user">
 			<jlg-layout-header>
 				<jlg-logo src="../resources/img/logo.png" ng-click="ctrl.goto('/'); ctrl.isMenu = false;"></jlg-logo>
 				<jlg-utilities>
-					<jlg-utilities-item ng-hide="user" ng-click="ctrl.goto('/signin'); ctrl.isMenu = false;" ><i class="fa fa-sign-in"></i> Se connecter</jlg-utilities-item>
-					<jlg-utilities-item ng-hide="user" ng-click="ctrl.goto('/signup'); ctrl.isMenu = false;" ><i class="fa fa-user-plus"></i> Créer un compte</jlg-utilities-item>
-					<jlg-utilities-item ng-show="user" ng-click="ctrl.goto('/my-account'); ctrl.isMenu = false;"><i class="fa fa-user"></i> Voir profile</jlg-utilities-item>
-					<jlg-utilities-item ng-show="user" ng-click="ctrl.goto('/signout'); ctrl.isMenu = false;"><i class="fa fa-sign-out"></i> Déconnexion</jlg-utilities-item>
+					<jlg-utilities-item ng-hide="user.account" ng-click="ctrl.goto('/signin'); ctrl.isMenu = false;" ><i class="fa fa-sign-in"></i> Se connecter</jlg-utilities-item>
+					<jlg-utilities-item ng-hide="user.account" ng-click="ctrl.goto('/signup'); ctrl.isMenu = false;" ><i class="fa fa-user-plus"></i> Créer un compte</jlg-utilities-item>
+					<jlg-utilities-item ng-show="user.account" ng-click="ctrl.goto('/my-account'); ctrl.isMenu = false;"><i class="fa fa-user"></i> {{user.getDisplayName()}}</jlg-utilities-item>
+					<jlg-utilities-item ng-show="user.account" ng-click="ctrl.goto('/signout'); ctrl.isMenu = false;"><i class="fa fa-sign-out"></i> Déconnexion</jlg-utilities-item>
 				</jlg-utilities>
 				<jlg-menu>
 					<jlg-menu-item href="/">Accueil</jlg-menu-item>
