@@ -37,6 +37,9 @@ app.controller('JLGUserCtrl', function($scope, $http, hash, navigate) {
 	ctrl.getDisplayName = function() {
 		return ctrl.account.content.firstname;
 	};
+	ctrl.disconnect = function() {
+		ctrl.account = undefined;
+	};
 	ctrl.signup = function() {
 		console.log('signup', arguments);
 
@@ -64,6 +67,7 @@ app.controller('JLGUserCtrl', function($scope, $http, hash, navigate) {
 				return;
 			}
 			ctrl.account = data;
+			ctrl.signupData = undefined;
 			navigate.goto('signup/success');
 		}).catch(function(error) {
 			console.error('error', error);

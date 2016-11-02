@@ -16,7 +16,7 @@
 					<jlg-utilities-item ng-hide="user.account" ng-click="ctrl.goto('/signin'); ctrl.isMenu = false;" ><i class="fa fa-sign-in"></i> Se connecter</jlg-utilities-item>
 					<jlg-utilities-item ng-hide="user.account" ng-click="ctrl.goto('/signup'); ctrl.isMenu = false;" ><i class="fa fa-user-plus"></i> Créer un compte</jlg-utilities-item>
 					<jlg-utilities-item ng-show="user.account" ng-click="ctrl.goto('/my-account'); ctrl.isMenu = false;"><i class="fa fa-user"></i> {{user.getDisplayName()}}</jlg-utilities-item>
-					<jlg-utilities-item ng-show="user.account" ng-click="ctrl.goto('/signout'); ctrl.isMenu = false;"><i class="fa fa-sign-out"></i> Déconnexion</jlg-utilities-item>
+					<jlg-utilities-item ng-show="user.account" ng-click="user.disconnect(); ctrl.goto('/signout'); ctrl.isMenu = false;"><i class="fa fa-sign-out"></i> Déconnexion</jlg-utilities-item>
 				</jlg-utilities>
 				<jlg-menu>
 					<jlg-menu-item href="/">Accueil</jlg-menu-item>
