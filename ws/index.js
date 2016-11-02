@@ -3,7 +3,44 @@ var express = require('express');
 var router = express.Router();
 module.exports = router;
 
+var Promise = require('bluebird');
+var fs = Promise.promisifyAll(require('fs'));
+
+var error = require('./error.js');
+var dbFilename = './ws/db.json';
+
+
+var db = {};
+
+var writeDb = function() {
+	console.log('about to write', db);
+	fs.writeFileAsync(dbFilename, JSON.stringify(db)).then(function(err) {
+		if (err) {
+			throw err;
+		}
+		console.log('It\'s saved!');
+	});
+};
+
+fs.readFileAsync(dbFilename)
+	.then(function(data) {
+		db = JSON.parse(data);
+	})
+	.catch(function(err) {
+		if (err) {
+			writeDb();
+			return;
+		}
+	});
+
 router.post('/signup', function(req, res) {
+	console.log('req.body', req.body);
+	if (db[req.body.email]) {
+		res.json({status: 'ko', error: error.accountAlreadyExists});
+		return;
+	}
+	db[req.body.email] = req.body;
+	writeDb();
 	res.json({status: 'ok'});
 });
 

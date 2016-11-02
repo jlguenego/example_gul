@@ -10,12 +10,17 @@ if (prod) {
 var express = require('express');
 // serve-index est un middleware pour afficher joliment les repertoires.
 var serveIndex = require('serve-index');
+// allow to access req.body
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 
 // middleware traitant tout nos web services
 var webservice = require('./ws/index.js');
 
 var app = express();
+app.use(bodyParser.json());
 
 // for the short loop dev paradigm: express watches the files and build the bundles when needed.
 if (!prod) {
@@ -28,6 +33,7 @@ if (!prod) {
 		// options
 	}));
 }
+
 
 app.use('/ws', webservice);
 

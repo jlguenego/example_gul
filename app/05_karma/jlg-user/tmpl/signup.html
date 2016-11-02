@@ -7,7 +7,7 @@
 </div>
 <div class="row">
 	<!-- contact form -->
-	<form name="signupForm" ng-submit="user.signup()">
+	<form name="signupForm" ng-submit="user.signup()" >
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
 			<div class="form-group">
@@ -34,7 +34,7 @@
 			<div class="form-group">
 				<input type="text" id="contact_country" class="form-control" ng-model="user.signupData.address.country" placeholder="Country" />
 			</div>
-			<div class="alert alert-danger" ng-show="user.errorMsg">
+			<div class="alert alert-danger" ng-init="user.errorMsg = undefined" ng-show="user.errorMsg">
 				<i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{user.errorMsg}}
 			</div>
 			<div class="form-group">

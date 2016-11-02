@@ -5,3 +5,6 @@
 dist/*
 # wpk is the output directory for webpack
 */wpk/*
+# database file
+db.json
+

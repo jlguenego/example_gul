@@ -16,7 +16,7 @@ app.config(['$routeProvider', function($routeProvider) {
 			templateUrl: signinUrl
 		})
 		.when('/signup', {
-			templateUrl: signupUrl,
+			templateUrl: signupUrl
 		})
 		.when('/signup/success', {
 			templateUrl: signupSuccessUrl,
@@ -35,6 +35,9 @@ app.controller('JLGUserCtrl', function($scope, $http, hash, navigate) {
 	'ngInject';
 	var ctrl = this;
 	ctrl.getDisplayName = function() {
+		if (!ctrl.account) {
+			return '';
+		}
 		return ctrl.account.content.firstname;
 	};
 	ctrl.disconnect = function() {
@@ -62,7 +65,7 @@ app.controller('JLGUserCtrl', function($scope, $http, hash, navigate) {
 		}).then(function(response) {
 			console.log('response', response);
 			if (response.data.status === 'ko') {
-				ctrl.errorMsg = response.data.errorMsg;
+				ctrl.errorMsg = response.data.error.msg;
 				ctrl.account = undefined;
 				return;
 			}
