@@ -1,17 +1,15 @@
-(function() {
-	'use strict';
-	
-	var contactUrl = require('./tmpl/contact.html');
-	console.log('contactUrl', contactUrl);
+'use strict';
 
-	var app = angular.module('jlg-contact', []);
+var contactUrl = require('./tmpl/contact.html');
+console.log('contactUrl', contactUrl);
 
-	app.config(['$routeProvider', function($routeProvider) {
-		console.log('jlg-contact config');
+var app = angular.module('jlg-contact', []);
 
-		$routeProvider
-			.when('/contact', {
-				templateUrl: contactUrl,
-			});
-	}]);
-})();
+app.config(['$routeProvider', function($routeProvider) {
+	console.log('jlg-contact config');
+
+	$routeProvider
+		.when('/contact', {
+			templateUrl: contactUrl,
+		});
+}]);

@@ -5,8 +5,9 @@ var del = require('del');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
 webpackConfig.setupProd();
-//var through = require('through2');
-//var open = require('open');
+var eslint = require('gulp-eslint');
+var through = require('through2');
+var open = require('open');
 
 gulp.task('default', ['rebuild']);
 
@@ -29,15 +30,16 @@ gulp.task('resources', function() {
 		.pipe(gulp.dest(path.dist));
 });
 
-var log = function(message) {
+function log(message) {
 	return through.obj(function(file, encoding, callback) {
-		//console.log(message, file.path);
+		console.log(message, file.path);
 		callback(null, file);
 	});
 };
 
 gulp.task('html', function() {
 	return gulp.src(path.html)
+		.pipe(log('processing html'))
 		.pipe($.htmlReplace({
 			js: ['app.min.js'],
 			css: ['style.min.css']
@@ -50,16 +52,17 @@ gulp.task('webpack', function(callback) {
         if (err) {
 			throw new gutil.PluginError('webpack', err);
 		}
-        //$.util.log('[webpack]', stats.toString({
+        // $.util.log('[webpack]', stats.toString({
             // output options
-        //}));
+        // }));
         callback();
     });
 });
 
+// not useful at this time.
 gulp.task('deploy', function() {
 	return gulp.src('./dist/**/*')
-		.pipe($.ghPages({ cacheDir: '../.publish_boof'}));
+		.pipe($.ghPages({cacheDir: '../.publish_example_gul'}));
 });
 
 gulp.task('build', function() {
@@ -71,6 +74,8 @@ gulp.task('rebuild', function() {
 	runSequence('clean', 'build');
 });
 
+// deprecated on this project. (no short test/dev loop)
+// because a watch will take time to rebuild
 gulp.task('watch', function() {
 	var watcher = gulp.watch('app/**/*', ['build']);
 	watcher.on('change', function(event) {
@@ -79,5 +84,14 @@ gulp.task('watch', function() {
 });
 
 gulp.task('start', function() {
-	open('http://jlguenego.github.io/boof/');
+	open('http://jlguenego.github.io/example_gul/');
 });
+
+// lint with es6 syntax ;)
+gulp.task('lint', function() {
+	return gulp.src(['**/*.js'])
+	.pipe(eslint())
+	.pipe(eslint.formatEach())
+	.pipe(eslint.failAfterError());
+});
+

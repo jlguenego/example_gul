@@ -2,7 +2,7 @@
 	'use strict';
 
 	var app = angular.module('jlg-user', []);
-	
+
 	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 		console.log('jlg-user config');
 		$locationProvider

@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	
+
 	var servicesUrl = require('./tmpl/services.html');
 	var usabilityUrl = require('./tmpl/usability.html');
 	var angularUrl = require('./tmpl/angular.html');
@@ -9,7 +9,7 @@
 
 	app.config(['$routeProvider', function($routeProvider) {
 		console.log('jlg-services config');
-		
+
 		$routeProvider
 			.when('/services', {
 				templateUrl: servicesUrl,

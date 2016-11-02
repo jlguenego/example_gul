@@ -12,7 +12,6 @@ var express = require('express');
 var serveIndex = require('serve-index');
 
 
-
 // middleware traitant tout nos web services
 var webservice = require('./ws/index.js');
 
@@ -37,12 +36,16 @@ app.use(serveIndex(htdocs, {icons: true}));
 
 // url rewriting
 var fs = require('fs');
-var directories = fs.readdirSync(htdocs).filter(function(dir) { return dir.match(/^\d\d_/) !== null;});
+var directories = fs.readdirSync(htdocs).filter(function(dir) {
+	return dir.match(/^\d\d_/) !== null;
+});
 console.log('directories', directories);
 var pages = ['signin', 'signup', 'signout', 'services', 'contact'];
 
 directories.forEach(function(dir) {
-	app.all(pages.map(function(page) { return '/' + dir + '/' + page + '*'; }), function(req, res) {
+	app.all(pages.map(function(page) {
+		return '/' + dir + '/' + page + '*';
+	}), function(req, res) {
 		res.sendFile('./app/' + dir + '/index.html', {root: __dirname});
 	});
 });

@@ -10,10 +10,10 @@
 
 		$routeProvider
 			.when('/', {
-				templateUrl: 'tmpl/home.html',
+				templateUrl: 'tmpl/home.html'
 			})
 			.otherwise({
-				redirectTo: '/',
+				redirectTo: '/'
 			});
 	}]);
 

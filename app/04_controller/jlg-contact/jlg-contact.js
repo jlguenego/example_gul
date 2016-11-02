@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	
+
 	var contactUrl = require('./tmpl/contact.html');
 	console.log('contactUrl', contactUrl);
 

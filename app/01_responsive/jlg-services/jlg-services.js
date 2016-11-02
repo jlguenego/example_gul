@@ -5,7 +5,7 @@
 
 	app.config(['$routeProvider', function($routeProvider) {
 		console.log('jlg-services config');
-		
+
 		$routeProvider
 			.when('/services', {
 				templateUrl: 'jlg-services/tmpl/services.html',
