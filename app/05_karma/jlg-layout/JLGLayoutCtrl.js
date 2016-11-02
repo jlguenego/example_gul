@@ -5,6 +5,7 @@ module.exports = function JLGLayoutCtrl($scope, $element, $attrs, $transclude, $
 	console.log('ctrl JLGLayoutCtrl', arguments);
 
 	var $location = $injector.get('$location');
+	var navigate = $injector.get('navigate');
 
 	this.name = $attrs.name || 'ctrl';
 	$scope[this.name] = this;
@@ -19,7 +20,7 @@ module.exports = function JLGLayoutCtrl($scope, $element, $attrs, $transclude, $
 
 	ctrl.goto = function(url) {
 		console.log('goto', arguments);
-		$location.path(url);
+		navigate.goto(url);
 	};
 
 	ctrl.refresh = function() {
