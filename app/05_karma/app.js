@@ -18,10 +18,11 @@ require('./jlg-contact/jlg-contact.js');
 require('./jlg-services/jlg-services.js');
 require('./jlg-user/jlg-user.js');
 require('./jlg-route/jlg-route.js');
+require('./jlg-prod/jlg-prod.js');
 
 var homeUrl = require('./tmpl/home.html');
 
-var app = angular.module('mainApp', ['ngRoute', 'jlg-route', 'jlg-layout', 'jlg-user', 'jlg-contact', 'jlg-services']);
+var app = angular.module('mainApp', ['ngRoute', 'jlg-route', 'jlg-layout', 'jlg-user', 'jlg-contact', 'jlg-services', 'jlg-prod']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	console.log('mainApp config');
