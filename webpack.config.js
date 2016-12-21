@@ -16,6 +16,7 @@ module.exports = {
 	},
 	plugins: [
 		new ExtractTextPlugin('[name].css'),
+
 		//new ngAnnotatePlugin({
        //     add: true,
             // other ng-annotate options here
@@ -23,6 +24,7 @@ module.exports = {
     ],
 	module: {
 		loaders: [
+			// ng-annotate loader ! That is the solution for a quick devtest loop!
 			{test: /\.js$/, loaders: ['ng-annotate']},
 			{test: /\.css$/, loader: ExtractTextPlugin.extract(['css?sourceMap'])},
 			// css-loader use file-loader and url-loader to require the fonts.
@@ -46,6 +48,10 @@ module.exports = {
                 comments: false,
             }
         }));
+
+		this.plugins.push(new webpack.DefinePlugin({
+			PROD: JSON.stringify(true)
+		}));
 	}
 };
 

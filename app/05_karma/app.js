@@ -57,5 +57,8 @@ app.run(['$injector', function($injector) {
 		console.log('end of digest');
 	});
 
+	$rootScope.env = (typeof PROD !== 'undefined') ? 'prod' : 'dev';
+
+
 }]);
 

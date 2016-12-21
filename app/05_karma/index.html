@@ -30,7 +30,10 @@
 					<jlg-menu-item href="/contact">Contact</jlg-menu-item>
 				</jlg-menu>
 			</jlg-layout-header>
-			<jlg-layout-body><ng-view></ng-view></jlg-layout-body>
+			<jlg-layout-body>
+				<ng-view></ng-view>
+				<div>Environnement: {{env}}</div>
+			</jlg-layout-body>
 		</jlg-layout>
 		<script src="../wpk/app_05_karma.js"></script>
 	</body>

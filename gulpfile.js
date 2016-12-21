@@ -87,7 +87,7 @@ gulp.task('start', function() {
 	open('http://jlguenego.github.io/example_gul/');
 });
 
-// lint with es6 syntax ;)
+// lint
 gulp.task('lint', function() {
 	return gulp.src(['**/*.js'])
 	.pipe(eslint())
